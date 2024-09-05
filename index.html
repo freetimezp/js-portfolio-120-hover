@@ -6,11 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Project</title>
+    <title>Project | Hover</title>
 </head>
 
 <body>
-    start
+    <div class="container">
+        <div class="imgbox">
+            <img src="assets/images/img1.jpg" alt="imgbox">
+            <img src="assets/images/img2.jpg" alt="imgbox">
+        </div>
+        <div class="imgbox">
+            <img src="assets/images/img3.jpg" alt="imgbox">
+            <img src="assets/images/img4.jpg" alt="imgbox">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="hover-effect.umd.js"></script>
+    <script type="text/javascript">
+        Array.from(document.querySelectorAll('.imgbox')).forEach((e) => {
+            const imgs = Array.from(e.querySelectorAll('img'));
+            new hoverEffect({
+                parent: e,
+                intensity: 0.3,
+                image1: imgs[0].getAttribute('src'),
+                image2: imgs[1].getAttribute('src'),
+                displacementImage: 'assets/images/img1.jpg'
+            });
+        })
+    </script>
+
 
     <script src="./assets/js/main.js"></script>
 </body>
